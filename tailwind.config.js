@@ -13,6 +13,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        "tejeda-primary": "#24293e",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
