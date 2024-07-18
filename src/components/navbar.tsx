@@ -1,9 +1,9 @@
 import {
     Menu,
-    Package2,
 } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { DialogTitle } from "@radix-ui/react-dialog";
 
 type RouteNames = "nosotros" | "servicios" | "valor" | "contacto";
 type Routes = Record<RouteNames, {
@@ -13,19 +13,19 @@ type Routes = Record<RouteNames, {
 
 const routes: Routes = {
     nosotros: {
-        route: "#nosotros",
+        route: "/#nosotros",
         title: "Nosotros"
     },
     servicios: {
-        route: "#servicios",
+        route: "/#servicios",
         title: "Servicios"
     },
     valor: {
-        route: "#valor-agregado",
+        route: "/#valor-agregado",
         title: "Valor agregado"
     },
     contacto: {
-        route: "#contacto",
+        route: "/#contacto",
         title: "Contacto"
     }
 }
@@ -64,18 +64,25 @@ export function Navbar() {
                     </Button>
                 </SheetTrigger>
                 <SheetContent side="right">
-                    <nav className="grid gap-6 text-lg uppercase font-bold tracking-tight">
+                    <nav className="grid gap-6 text-lg uppercase font-semibold tracking-tight">
                         <a
                             href="#"
-                            className="flex items-center gap-2 text-lg font-semibold md:text-base"
+                            className="flex items-center gap-2 text-lg font-bold md:text-base"
                         >
-                            <Package2 className="h-6 w-6" />
-                            <span className="sr-only">TEJEDA DE LA ROSA</span>
+                            <div className="h-10 aspect-square md:hidden">
+                                <img
+                                    alt="Tejeda de la Rosa"
+                                    src="/logo-sm.png"
+                                />
+                            </div>
+                            <DialogTitle>
+                                TEJEDA DE LA ROSA
+                            </DialogTitle>
                         </a>
 
                         {
                             Object.keys(routes).map(key => {
-                                return <a href={routes[key].route} className="hover:text-foreground">
+                                return <a key={key} href={routes[key].route} className="hover:text-foreground">
                                     {routes[key].title}
                                 </a>
                             })
@@ -87,8 +94,9 @@ export function Navbar() {
                 {
                     Object.keys(routes).map(key => {
                         return <a
+                            key={key}
                             href={routes[key].route}
-                            className="text-white transition-colors hover:text-foreground uppercase font-bold tracking-tight"
+                            className="text-white transition-colors uppercase font-semibold tracking-widest hover:text-foreground"
                         >
                             {routes[key].title}
                         </a>
