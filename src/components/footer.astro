@@ -1,0 +1,33 @@
+---
+import { PhoneIcon, MailIcon, MapPinIcon } from "lucide-react";
+---
+
+<footer class="min-w-screen bg-tejeda-primary flex flex-col-reverse md:flex-row gap-4 py-10 px-8">
+    <div class="w-full md:w-1/2 lg:w-1/3">
+        <img
+            alt="Logo Tejeda de la Rosa"
+            src="/logo-lg.png"
+            class="object-cover object-center w-full"
+        />
+    </div>
+    <div class="w-full md:w-1/2 lg:w-2/3 flex flex-col items-center text-white">
+        <h2 class="text-4xl font-bold uppercase tracking-wider text-center mb-5 underline underline-offset-4 decoration-tejeda-accent">Contacto</h2>
+        <div class="w-full md:w-1/2 text-xl flex flex-col items-start gap-4">
+            <a href="tel:+52(33)3559-3034" class="flex gap-2 items-center group">
+                <PhoneIcon className="h-[1em] min-w-[1em] group-hover:animate-[ping_1s] group-hover:ease-in-out" />
+                <span class="group-hover:underline decoration-2 decoration-tejeda-accent ease-in duration-700">+52 (33) 3559-3034</span>
+            </a>
+            <a href= "mailto:contacto@tejedadelarosa.com" class="flex gap-2 items-center group">
+                <MailIcon className="h-[1em] min-w-[1em] group-hover:animate-[ping_1s] group-hover:ease-in-out" />
+                <span class="group-hover:underline decoration-2 decoration-tejeda-accent ease-in duration-700">contacto@tejedadelarosa.com</span>
+            </a>
+            <a href="https://maps.app.goo.gl/hBfdDdxYtCru8hVH7" class="flex gap-2 items-center group">
+                <MapPinIcon className="h-[1em] min-w-[1em] group-hover:animate-[ping_1s] group-hover:ease-in-out" />
+                <span class="group-hover:underline decoration-2 decoration-tejeda-accent ease-in duration-700">Avenida Acueducto #2100 Piso 7, Suite 7- A
+                    Edificio Vista Acueducto. Colonia Colinas de
+                    San Javier C.P. 44660
+                    Guadalajara, Jalisco, México.</span>
+            </a>
+        </div>
+    </div>
+</footer>
