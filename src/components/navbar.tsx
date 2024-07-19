@@ -31,7 +31,7 @@ const routes: Routes = {
 }
 
 export function Navbar() {
-    return <header className="sticky top-0 flex h-16 md:h-24 items-center gap-4 border-b bg-background px-4 md:px-6 bg-tejeda-primary">
+    return <header className="z-50 sticky top-0 flex h-16 md:h-24 items-center gap-4 border-b bg-background px-4 md:px-6 bg-tejeda-primary">
         <a
             href="#"
             className="flex items-center gap-2 text-lg md:text-xl uppercase tracking-tighter font-bold w-full md:w-fit"
