@@ -53,18 +53,18 @@ export default function Contact() {
         console.log("Enviar mail", values)
     }
 
-    return <section id="contacto" className="flex w-full relative py-10 md:px-20">
+    return <section id="contacto" className="flex w-full relative sm:py-10 sm:px-20">
         <img
             className="h-full w-full absolute object-cover object-center top-0 left-0"
             src="/fondo-contacto.png"
             alt="Fondo contacto"
         />
 
-        <Card className="z-10 w-full md:w-4/5 lg:w-3/5">
+        <Card className="z-10 w-full md:w-4/5 lg:w-3/5 rounded-none sm:rounded-sm">
             <CardHeader>
                 <CardTitle className="text-4xl font-bold uppercase tracking-wider text-center mb-5 underline underline-offset-4 decoration-tejeda-accent">Contacto</CardTitle>
                 <CardDescription>
-                    Ponte en contacto con nosotros.
+                    Ponte en contacto con nuestro equipo de profesionales en servicios jurídicos.
                 </CardDescription>
             </CardHeader>
             <Form {...form}>
