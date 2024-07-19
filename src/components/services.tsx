@@ -42,7 +42,7 @@ const services: Service[] = [
     {
         title: "FUSIONES Y ADQUISICIONES",
         description: "Acompañamiento y asesoría en el proceso y gestión de compra y/o venta de la empresa.",
-        icon: <BookOpenIcon /> // ReactNode placeholder
+        icon: <BookOpenIcon />
     },
     {
         title: "PROTECCIÓN DE DATOS PERSONALES",
@@ -83,7 +83,7 @@ const services: Service[] = [
 
 export default function Services() {
     return <motion.ul
-        className="container max-w-7xl grid grid-cols-2 items-start gap-4"
+        className="container max-w-7xl grid grid-cols-1 md:grid-cols-2 items-start gap-4"
         variants={container}
         initial="hidden"
         animate="visible"
