@@ -60,22 +60,22 @@ export default function Contact() {
             alt="Fondo contacto"
         />
 
-        <Card className="z-10 w-full md:w-4/5 lg:w-3/5 rounded-none sm:rounded-sm">
+        <Card className="z-10 w-full md:w-4/5 lg:w-[55%] sm:rounded-sm bg-transparent border-none sm:border-white sm:bg-white text-white sm:text-black">
             <CardHeader>
                 <CardTitle className="text-4xl font-bold uppercase tracking-wider text-center mb-5 underline underline-offset-4 decoration-tejeda-accent">Contacto</CardTitle>
-                <CardDescription>
+                <CardDescription className="text-center text-gray-300 sm:text-gray-600">
                     Ponte en contacto con nuestro equipo de profesionales en servicios jurídicos.
                 </CardDescription>
             </CardHeader>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
-                    <CardContent className="grid gap-4">
+                    <CardContent className="grid gap-x-5 gap-2">
                         <FormField
                             control={form.control}
                             name="name"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Nombre completo</FormLabel>
+                                    <FormLabel className="font-bold">Nombre completo</FormLabel>
                                     <FormControl>
                                         <Input placeholder="Ingrese su nombre completo" {...field} />
                                     </FormControl>
@@ -88,7 +88,7 @@ export default function Contact() {
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Correo electrónico</FormLabel>
+                                    <FormLabel className="font-bold">Correo electrónico</FormLabel>
                                     <FormControl>
                                         <Input placeholder="Ingrese su email" {...field} />
                                     </FormControl>
@@ -100,8 +100,8 @@ export default function Contact() {
                             control={form.control}
                             name="phone"
                             render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Número de teléfono</FormLabel>
+                                <FormItem className="col-span-2">
+                                    <FormLabel className="font-bold">Número de teléfono</FormLabel>
                                     <FormControl>
                                         <Input placeholder="Ingrese su número telefónico" {...field} />
                                     </FormControl>
@@ -113,8 +113,8 @@ export default function Contact() {
                             control={form.control}
                             name="message"
                             render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Mensaje</FormLabel>
+                                <FormItem className="col-span-2">
+                                    <FormLabel className="font-bold">Mensaje</FormLabel>
                                     <FormControl>
                                         <Textarea
                                             placeholder="Ingrese aquí su mensaje"
@@ -126,13 +126,11 @@ export default function Contact() {
                                 </FormItem>
                             )}
                         />
-                    </CardContent>
-                    <CardFooter>
-                        <Button className="w-full">
+                        <Button className="w-full col-span-2" variant="tejeda">
                             <MailIcon className="mr-2 h-4 w-4" />
                             Enviar
                         </Button>
-                    </CardFooter>
+                    </CardContent>
                 </form>
             </Form>
         </Card>

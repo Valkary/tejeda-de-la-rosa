@@ -1,0 +1,33 @@
+---
+type Headshot = { name: string; src: string };
+const headshots: Headshot[] = [
+    { name: "Nombre 1", src: "/headshots/1.png" },
+    { name: "Nombre 2", src: "/headshots/2.png" },
+    { name: "Nombre 3", src: "/headshots/3.png" },
+    { name: "Nombre 4", src: "/headshots/4.png" },
+    { name: "Nombre 5", src: "/headshots/5.png" },
+    { name: "Nombre 6", src: "/headshots/6.png" },
+    { name: "Nombre 7", src: "/headshots/7.png" },
+];
+---
+
+<div
+    class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"
+>
+    <ul
+        class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
+    >
+        {
+            [...headshots, ...headshots, ...headshots].map(
+                ({ src, name }, idx) => (
+                    <li aria-hidden={idx >= headshots.length} class="uppercase tracking-wide font-bold text-center">
+                        <div class="aspect-square h-56 rounded-full overflow-hidden">
+                            <img src={src} alt={name} class="object-cover object-center w-full h-full" />
+                        </div>
+                        {name}
+                    </li>
+                ),
+            )
+        }
+    </ul>
+</div>

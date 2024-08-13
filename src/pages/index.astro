@@ -3,14 +3,14 @@ import Hero from '@/components/hero.astro';
 import Layout from '../layouts/Layout.astro';
 import Contact from '@/components/contact';
 import Nosotros from '@/components/nosotros.astro';
-import Servicios from '@/components/servicios.astro';
 import Valor from "@/components/valor_agregado.astro";
+import Servicios from '@/components/servicios';
 ---
 
 <Layout title="Tejeda De La Rosa">
 	<Hero />
 	<Nosotros />
-	<Servicios />
+	<Servicios client:visible />
 	<Valor />
 	<Contact client:visible />
 </Layout>

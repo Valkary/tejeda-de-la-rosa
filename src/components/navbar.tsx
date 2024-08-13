@@ -1,6 +1,4 @@
-import {
-    Menu,
-} from "lucide-react"
+import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { DialogTitle } from "@radix-ui/react-dialog";
@@ -8,7 +6,8 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useAnimationControls } from "framer-motion";
 
-type RouteNames = "nosotros" | "servicios" | "valor" | "contacto";
+const route_names = ["nosotros", "servicios", "valor", "contacto"] as const;
+type RouteNames = typeof route_names[number];
 type Routes = Record<RouteNames, {
     route: string,
     title: string,
@@ -33,20 +32,20 @@ const routes: Routes = {
     }
 }
 
-export function Navbar() {
+export default function Navbar() {
     const [currSection, setCurrSection] = useState<RouteNames>("nosotros");
     const [y, setY] = useState(0);
-
     const sectionControls = useAnimationControls();
-    const rectRef = useRef<HTMLDivElement>();
+    const rectRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        const anchor: HTMLAnchorElement = document.querySelector(`#section-${currSection}`);
+        let anchor: HTMLAnchorElement | null = document.querySelector(`#section-${currSection}`);
 
-        if (!anchor || !anchor.parentElement || !rectRef) {
-            // sectionControls.set({ opacity: 0 })
-            return;
-        };
+        route_names.indexOf(currSection) !== -1 ?
+            sectionControls.set({ opacity: 1 }) :
+            sectionControls.set({ opacity: 0 });
+
+        if (!anchor || !anchor.parentElement || !rectRef.current) return;
 
         const parent_rect = anchor.parentElement.getBoundingClientRect();
         const anchor_rect = anchor.getBoundingClientRect();
@@ -56,14 +55,12 @@ export function Navbar() {
             x: offset_x,
             width: anchor_rect.width,
             opacity: 1,
-            transition: {
-                duration: 0.3
-            }
+            transition: { duration: 0.3 }
         });
-    }, [currSection]);
+    }, [currSection, sectionControls]);
 
     useEffect(() => {
-        window.addEventListener("scroll", (e) => setY(window.scrollY));
+        window.addEventListener("scroll", () => setY(window.scrollY));
         // @ts-ignore
         const sections: HTMLElement[] = Array.from(document.getElementsByTagName("section"));
 
@@ -76,7 +73,7 @@ export function Navbar() {
         setCurrSection(tmpSection?.id as RouteNames);
 
         return () => {
-            window.removeEventListener("scroll", (e) => setY(window.scrollY));
+            window.removeEventListener("scroll", () => setY(window.scrollY));
         };
     }, [y]);
 
@@ -104,7 +101,7 @@ export function Navbar() {
             <Sheet>
                 <SheetTrigger asChild>
                     <Button
-                        variant="outline"
+                        variant="tejeda"
                         size="icon"
                         className="shrink-0 md:hidden"
                     >
@@ -145,6 +142,7 @@ export function Navbar() {
                 className="z-20 bottom-0 absolute h-2 bg-tejeda-accent"
                 animate={sectionControls}
                 initial={{ opacity: 1 }}
+                style={{ opacity: 1 }} // Add this line
             />
 
             <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
