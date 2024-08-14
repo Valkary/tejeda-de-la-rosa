@@ -67,7 +67,7 @@ export default function Services() {
     const [ref, entry] = useIntersectionObserver({
         threshold: 0,
         root: null,
-        rootMargin: "0px",
+        rootMargin: "-400px",
     });
 
     useEffect(() => {
