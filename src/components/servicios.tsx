@@ -76,7 +76,7 @@ export default function Services() {
 
     return (
         <section id="servicios" className="flex flex-col gap-5 w-full min-h-[80vh] relative sm:py-10 sm:px-20">
-            <h2 className="z-10 text-4xl text-white font-bold uppercase tracking-wider text-center mb-5 underline underline-offset-4 decoration-tejeda-accent">
+            <h2 className="z-10 text-5xl font-semibold text-white uppercase tracking-wider text-center mb-5 underline underline-offset-4 decoration-tejeda-accent">
                 Servicios
             </h2>
 

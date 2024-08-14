@@ -62,7 +62,7 @@ export default function Contact() {
 
         <Card className="z-10 w-full md:w-4/5 lg:w-[55%] sm:rounded-sm bg-transparent border-none sm:border-white sm:bg-white text-white sm:text-black">
             <CardHeader>
-                <CardTitle className="text-4xl font-bold uppercase tracking-wider text-center mb-5 underline underline-offset-4 decoration-tejeda-accent">Contacto</CardTitle>
+                <CardTitle className="text-5xl font-semibold text-tejeda-secondary uppercase tracking-wider text-center mb-5 underline underline-offset-4 decoration-tejeda-accent">Contacto</CardTitle>
                 <CardDescription className="text-center text-gray-300 sm:text-gray-600">
                     Ponte en contacto con nuestro equipo de profesionales en servicios jurídicos.
                 </CardDescription>
@@ -126,9 +126,9 @@ export default function Contact() {
                                 </FormItem>
                             )}
                         />
-                        <Button className="w-full col-span-2" variant="tejeda">
-                            <MailIcon className="mr-2 h-4 w-4" />
-                            Enviar
+                        <Button className="w-full col-span-2 group" variant="tejeda">
+                            <MailIcon className="mr-2 h-4 w-4 transition-all duration-300" />
+                            <span className="transition-all duration-300">Enviar</span>
                         </Button>
                     </CardContent>
                 </form>
